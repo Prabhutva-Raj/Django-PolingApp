@@ -1,0 +1,15 @@
+{% extends 'polls/base.html' %}
+
+{% block main_content %}
+
+{% if latest_questionnaire %}
+    <ul>
+    {% for ques in latest_questionnaire %}
+        <li><a href = {% url "polls:detail" ques.id %}><b>{{ques.question_text}}</b></a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p> You don't have any question. Please add some. </p>
+{% endif %}
+
+{% endblock %}
